@@ -1,8 +1,8 @@
-# Homework 2 - *Name of App*
+# Homework 2 - *MyChatApp*
 
 **Name of your app** is a Ruby on Rails blog application that allows users to send messages to each other that can only be read once.
 
-Submitted by: **Your Name Here**
+Submitted by: **Lam Do**
 
 Time spent: **X** hours
 
