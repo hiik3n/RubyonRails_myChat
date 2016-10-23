@@ -32,7 +32,9 @@ gem 'jbuilder', '~> 2.5'
 # gem 'capistrano-rails', group: :development
 
 gem 'bootstrap', '~> 4.0.0.alpha5'
-gem 'rails-assets-tether', '>= 1.1.0'
+source 'https://rails-assets.org' do
+	gem 'rails-assets-tether', '>= 1.1.0'
+end
 gem 'bcrypt', '~> 3.1.7'
 
 group :development, :test do

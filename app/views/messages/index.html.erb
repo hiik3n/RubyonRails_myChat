@@ -1,0 +1,30 @@
+<h1>Current Inbox</h1>
+
+<div>
+	<%= link_to 'New Message', root_path, class: 'btn btn-secondary'%>
+	<%= link_to 'Add Friend', root_path, class: 'btn btn-secondary'%>
+	<%= link_to 'Sent Messages', root_path, class: 'btn btn-secondary'%>
+</div>
+
+<table class="table">
+	<thead class="thead thead-default">
+		<tr>
+				<th>From</th>
+				<th>To</th>
+				<th>Title</th>
+				<th>Body</th>
+				<th>Time</th>
+		</tr>
+	<tbody>
+		<% @messages.each do |message| %>
+			<tr>
+				<td><%= User.find(message.sender_id).email %></td>
+				<td><%= User.find(message.recipient_id).email %></td>
+				<td><%= message.title %></td>
+				<td><%= message.body %></td>
+				<td><%= time_ago_in_words message.created_at  %></td>
+
+			</tr>
+		<% end %>
+	</tbody>
+</table>
