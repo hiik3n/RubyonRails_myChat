@@ -3,28 +3,26 @@
 <div>
 	<%= link_to 'New Message', new_message_path, class: 'btn btn-secondary'%>
 	<%= link_to 'Add Friend', root_path, class: 'btn btn-secondary'%>
-	<%= link_to 'Sent Messages', messages_sent_path, class: 'btn btn-secondary'%>
+	<%= link_to 'Received Messages', messages_path, class: 'btn btn-secondary'%>
 </div>
 <table class="table">
 	<thead class="thead thead-default">
 		<tr>
-				<th>From</th>
 				<th>To</th>
 				<th>Title</th>
 				<th>SentTime</th>
 				<th>IsRead</th>
-				<th>Show Content</th>
+				<th>Body</th>
 		</tr>
 		</thead>
 	<tbody>
 		<% @messages.each do |message| %>
 			<tr>
-				<td><%= User.find(message.sender_id).email %></td>
 				<td><%= User.find(message.recipient_id).email %></td>
 				<td><%= message.title %></td>
 				<td><%= time_ago_in_words message.created_at  %></td>
 				<td><%= is_messaged_read(message) %></td>
-				<td><%= link_to 'Show', message, class: 'btn btn-secondary'%></td>
+				<td><%= message.title %></td>
 			</tr>
 		<% end %>
 	</tbody>

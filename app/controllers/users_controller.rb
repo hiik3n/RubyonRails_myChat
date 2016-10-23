@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
 	def index
-		Rails.logger.info request.env["HTTP_COOKIE"]
 		@users = User.all
 	end
 

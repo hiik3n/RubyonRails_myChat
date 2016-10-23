@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create] 
   resources :messages
 
+  get 'messages_sent' => 'messages#sent'
+
 	delete '/logout' => 'sessions#destroy'
 	root 'users#index'
   resources :users

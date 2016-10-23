@@ -1,0 +1,28 @@
+<h3>Message from <strong><%= User.find(@message.sender_id).email %></strong></h3>
+
+<div class="row">
+	<div class="col-xs-12 col-md-12">
+		<p><strong>Sent from: </strong>
+		<%=time_ago_in_words @message.created_at %></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-1">
+		<p><strong>Title:</strong></p>
+	</div>
+	<div class="col-xs-6 col-md-11">
+		<p><%= @message.title %></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-xs-12 col-md-1">
+		<p><strong>Body:</strong></p>
+	</div>
+	<div class="col-xs-6 col-md-11">
+		<p><%= @message.body %></p>
+	</div>
+</div>
+
+<% set_message_read(@message) %>
+
+<%= link_to "Back", messages_path %>
