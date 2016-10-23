@@ -7,6 +7,14 @@ module MessagesHelper
 		end
 	end
 
+	def is_messaged_read_bool(message)
+		if message.read_at
+			return true
+		else
+			return false
+		end
+	end
+
 	def set_message_read(message)
 		message.read_at = Time.now
 		message.save

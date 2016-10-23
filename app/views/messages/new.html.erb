@@ -8,13 +8,32 @@
 <%= form_for @message do |f| %>
 
 	<div class="form-group">
-		<%= f.label :sender_id %>
-		<%= f.number_field :sender_id, placeholder: 'Enter your sender id', class: 'form-control'%>
+		<%= f.hidden_field :sender_id, :value => current_user.id%>
 	</div>
+
 	<div class="form-group">
-		<%= f.label :recipient_id %>
-		<%= f.number_field :recipient_id, placeholder: 'Enter your receipient id', class: 'form-control'%>
+		<%= f.hidden_field :recipient_id, :value => User.find(params[:format]).id if params[:format]%>
 	</div>
+
+
+	<div>
+		<%= 'Select receiver' %>
+		<div class="dropdown open">
+		  <a class="btn btn-secondary dropdown-toggle" href="" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+		    <%= User.find(params[:format]).email if params[:format]%>
+		    <%= 'Select receiver' if !params[:format]%>
+		  </a>
+		  
+		  <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+		  <% @users.each do |user| if !params[:format]%>
+		    <a class="dropdown-item" href='<%= new_message_path(user.id)  %>'><%= user.email %></a>
+		   <% end %>
+		   <% end %>
+		  </div>
+		</div>
+	</div>
+
+
 
 	<div class="form-group">
 		<%= f.label :title %>

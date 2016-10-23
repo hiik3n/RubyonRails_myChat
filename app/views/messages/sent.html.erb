@@ -12,7 +12,6 @@
 				<th>Title</th>
 				<th>SentTime</th>
 				<th>IsRead</th>
-				<th>Body</th>
 		</tr>
 		</thead>
 	<tbody>
@@ -21,8 +20,7 @@
 				<td><%= User.find(message.recipient_id).email %></td>
 				<td><%= message.title %></td>
 				<td><%= time_ago_in_words message.created_at  %></td>
-				<td><%= is_messaged_read(message) %></td>
-				<td><%= message.title %></td>
+				<td><%= is_messaged_read(message) %></td
 			</tr>
 		<% end %>
 	</tbody>

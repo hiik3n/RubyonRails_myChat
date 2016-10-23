@@ -9,16 +9,16 @@ class MessagesController < ApplicationController
 
 	def new
 		@message = Message.new
+		@users = User.all
 	end
 
+
 	def create
-		@message = Message.new message_params  
+		@message = Message.new message_params
 		if @message.save
-			raise 'abc'
 			redirect_to messages_path, notice: 'Message created'
 		else
-			raise 'abc'
-			render 'new'
+			redirect_to new_message_path, notice: 'Message created failed'
 		end
 	end
 

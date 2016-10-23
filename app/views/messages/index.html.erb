@@ -24,7 +24,7 @@
 				<td><%= message.title %></td>
 				<td><%= time_ago_in_words message.created_at  %></td>
 				<td><%= is_messaged_read(message) %></td>
-				<td><%= link_to 'Show', message, class: 'btn btn-secondary'%></td>
+				<td><%= ( link_to 'Show', message, class: 'btn btn-secondary' ) if !is_messaged_read_bool(message) %></td>
 			</tr>
 		<% end %>
 	</tbody>
